@@ -150,7 +150,8 @@ exports.signin = async(req,res) => {
     }
     // check if verified or not
     if(!user.verified){
-        return res.status(400).json({error:"User not verified, verify to continue"})
+        return res.status(400).json({error:`User not verified, verify to continue <a href='${process.env.server_url}/resendverification'>Resend Verification</a>`})
+        // return res.send({error:"verification error"})
     }
 
     // generate login token and save it in cookie
